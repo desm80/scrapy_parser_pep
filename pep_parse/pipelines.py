@@ -2,7 +2,7 @@ import csv
 import datetime as dt
 from collections import Counter
 
-from constants import BASE_DIR, DATETIME_FORMAT
+from pep_parse.constants import BASE_DIR, DATETIME_FORMAT
 
 
 class PepParsePipeline:
