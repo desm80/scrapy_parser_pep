@@ -29,5 +29,3 @@ class PepParsePipeline:
         with open(file_path, mode='w', encoding='utf-8') as f:
             writer = csv.writer(f, dialect='unix')
             writer.writerows(for_output)
-
-
