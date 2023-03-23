@@ -6,6 +6,8 @@ from constants import BASE_DIR, DATETIME_FORMAT
 
 
 class PepParsePipeline:
+    """Дополнительная обработка статистической информации о статусах Pep и
+    сохранение результата в csv файл."""
     def open_spider(self, spider):
         self.result = []
         self.results_dir = BASE_DIR / 'results'

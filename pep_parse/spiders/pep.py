@@ -11,6 +11,7 @@ class PepSpider(scrapy.Spider):
     start_urls = ['https://peps.python.org/']
 
     def parse(self, response):
+        """Парсинг ссылок на странички с конкретным Pep."""
         table = response.css('#numerical-index')
         links = table.css('td > a::attr(href)').getall()
         for link in links:
@@ -18,6 +19,7 @@ class PepSpider(scrapy.Spider):
             yield response.follow(pep_url, callback=self.parse_pep)
 
     def parse_pep(self, response):
+        """Парсинг информации о статусе Pep и его названия."""
         name = response.css('#pep-content > h1::text').get()
         data = {
             'number': int(list(name.split(' '))[1]),
